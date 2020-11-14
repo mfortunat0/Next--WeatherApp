@@ -9,7 +9,7 @@ export default function Home() {
   const inputOnChange = e => setInputData(e.target.value)
   const getData = async () => {
     if (inputData.length > 0) {
-      const result = await Axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${inputData}&units=metric&appid=32a5d6ff1b5882a6166890b06d6881fd`)
+      const result = await Axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${inputData}&units=metric&appid=${process.env.KEY}`)
       setData({
         temp: parseInt(result.data.main.temp),
         description: result.data.weather[0].description,
